@@ -25,6 +25,8 @@ Public Class Form1
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         Select Case ComboBox1.Text
+            Case "1440x3088"
+                Shell("""Tools\adb.exe"" shell input swipe 562 2171 1350 2171")
             Case "1440x2560"
                 Shell("""Tools\adb.exe"" shell input swipe 562 1800 1440 1800")
             Case "1080x1920"
@@ -51,6 +53,8 @@ Public Class Form1
     End Sub
     Private Sub Button16_Click_1(sender As Object, e As EventArgs) Handles Button16.Click
         Select Case ComboBox1.Text
+            Case "1440x3088"
+                Shell("""Tools\adb.exe"" shell input swipe 562 2171 1350 2171")
             Case "1440x2560"
                 Shell("""Tools\adb.exe"" shell input swipe 562 1800 1440 1800")
             Case "1080x1920"
