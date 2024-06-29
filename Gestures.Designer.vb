@@ -117,7 +117,7 @@ Partial Class Gestures
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"1440x2560", "1080x1920", "800x1280", "768x1280", "720x1280", "720x1200", "480x800", "400x800", "540x960", "240x320"})
+        Me.ComboBox1.Items.AddRange(New Object() {"1440x3088", "1440x2560", "1080x1920", "800x1280", "768x1280", "720x1280", "720x1200", "480x800", "400x800", "540x960", "240x320"})
         Me.ComboBox1.Location = New System.Drawing.Point(64, 6)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(79, 21)
@@ -275,38 +275,9 @@ Partial Class Gestures
     End Sub
     'zmiana rozdzielczosci w combobox
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-    	Select Case ComboBox1.Text
-            Case "1440x2560"
-                resX = 1440
-                resY = 2560
-            Case "1080x1920"
-                resX = 1080
-                resY = 1920
-            Case "800x1280"
-                resX = 800
-                resY = 1280
-            Case "768x1280"
-                resX = 768
-                resY = 1280
-            Case "720x1280"
-                resX = 720
-                resY = 1280
-            Case "720x1200"
-                resX = 720
-                resY = 1200
-            Case "540x960"
-                resX = 540
-                resY = 960
-            Case "480x800"
-                resX = 480
-                resY = 800
-            Case "400x800"
-                resX = 400
-                resY = 800
-            Case "240x320"
-                resX = 240
-                resY = 320
-        End Select
+        Dim selected() as String = Split(ComboBox1.Text, "x")
+    	resX = selected(0)
+        resY = selected(1)
     End Sub
 
     Friend WithEvents Button1 As System.Windows.Forms.Button
@@ -329,7 +300,7 @@ Partial Class Gestures
     Private Sub Panel1_MouseDown(sender As Object, e As EventArgs) Handles Panel1.MouseDown
         'check if resolution selected
         If Me.ComboBox1.Text = "" Then
-            MsgBox("Choose you're devices resolution")
+            MsgBox("Choose your devices resolution")
             complete_flag = 0
         Else
             'store mouse donwn coordinates
